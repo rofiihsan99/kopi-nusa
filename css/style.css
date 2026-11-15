@@ -1,10 +1,85 @@
 body {
   margin: 0;
-  color: #2f2118;
-  background: #f6f0e8;
+  color: #0f172a;
+  background: #f8fafc;
   font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* 1. Skip Link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  padding: 10px 14px;
+  color: #0b132b;
+  font-weight: 700;
+  text-decoration: none;
+  background: #f5c542;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
+
+/* 2. Header & Navigasi */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center; 
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #0b132b;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 0 12px; 
+}
+.nav a {
+  color: #334155;
+  text-decoration: none;
+}
+
+.nav a[aria-current="page"] {
+  color: #0b132b;
+  font-weight: 800;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 2px;
+}
+
+/* 3. Indikator Fokus Keyboard */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* 4. Konten Utama & Hero */
 .page {
   max-width: 920px;
   margin: 0 auto;
@@ -13,27 +88,105 @@ body {
 
 .hero {
   padding: 36px;
-  color: white;
-  background: #6f3b1f;
+  color: #f8fafc;
+  background: #0b132b;
+  border: 2px solid #d4af37;
   border-radius: 24px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .eyebrow {
   margin: 0 0 8px;
+  color: #f5c542;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.products {
-  padding-left: 1.2rem;
+/* Gambar SVG */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 24px;
+  border-radius: 16px;
+}
+
+/* 5. Kartu Produk */
+.product-card {
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #d4af37;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card h3 {
+  margin: 0 0 8px;
+  color: #0b132b;
+}
+
+.price {
+  margin: 8px 0 0;
+  font-weight: 700;
+  color: #b45309;
 }
 
 button {
   padding: 12px 18px;
-  color: #2f2118;
+  color: #0b132b;
   font-weight: 700;
   cursor: pointer;
-  background: #ffd166;
+  background: #f5c542;
   border: 0;
   border-radius: 999px;
+}
+
+/* 6. Footer */
+.site-footer {
+  padding: 24px 20px;
+  color: #f8fafc;
+  text-align: center;
+  background: #0b132b;
+  border-top: 2px solid #d4af37;
+}
+
+body.dark-mode {
+  color: #f1f5f9;
+  background: #050811;
+}
+
+body.dark-mode .site-header {
+  background: #0b132b;
+  border-bottom-color: #1e293b;
+}
+
+body.dark-mode .brand,
+body.dark-mode .nav a[aria-current="page"] {
+  color: #f5c542;
+}
+
+body.dark-mode .nav a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hero {
+  background: #111c3a;
+  border-color: #f5c542;
+}
+
+body.dark-mode .product-card {
+  background: #0b132b;
+  border-color: #1e293b;
+  border-left-color: #f5c542;
+}
+
+body.dark-mode .product-card h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .price {
+  color: #f5c542;
 }
