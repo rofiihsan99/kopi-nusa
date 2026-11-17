@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: #0f172a;
@@ -113,25 +119,154 @@ img {
 }
 
 /* 5. Kartu Produk */
+.product-list {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
 .product-card {
+  min-width: 0;
   padding: 16px 20px;
-  margin-bottom: 16px;
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-left: 4px solid #d4af37;
   border-radius: 12px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
 }
 
 .product-card h3 {
   margin: 0 0 8px;
   color: #0b132b;
+  overflow-wrap: anywhere;
+}
+
+.product-card p {
+  overflow-wrap: anywhere;
 }
 
 .price {
   margin: 8px 0 0;
   font-weight: 700;
   color: #b45309;
+}
+
+/* 5b. Menu Interaktif & Ringkasan Pesanan */
+.product-card:hover {
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.order-button {
+  margin-top: 12px;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+}
+
+.order-summary {
+  max-width: 100%;
+  padding: 20px 24px;
+  margin-top: 24px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-top: 4px solid #d4af37;
+  border-radius: 16px;
+  overflow-wrap: anywhere;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.order-summary h3 {
+  margin: 0 0 12px;
+  color: #0b132b;
+}
+
+.order-list {
+  padding: 0;
+  margin: 0 0 12px;
+  list-style: none;
+}
+
+.order-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.order-list .item-name {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.order-total {
+  margin: 8px 0 0;
+}
+
+.order-total strong {
+  color: #b45309;
+}
+
+.order-discount {
+  margin: 8px 0 0;
+  color: #15803d;
+  font-weight: 700;
+}
+
+#kosongkanPesanan {
+  margin-top: 16px;
+  background: #e2e8f0;
+}
+
+.whatsapp-button {
+  margin-top: 16px;
+  margin-right: 8px;
+  color: #ffffff;
+  background: #15803d;
+}
+
+.whatsapp-button:hover {
+  background: #166534;
+}
+
+.remove-button {
+  padding: 2px 4px;
+  color: #b91c1c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: transparent;
+  text-decoration: underline;
+}
+
+.remove-button:hover {
+  color: #7f1d1d;
+}
+
+/* 5c. Notifikasi Mengambang */
+.notifikasi {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 200;
+  max-width: min(360px, calc(100vw - 40px));
+  padding: 14px 18px;
+  color: #0b132b;
+  font-weight: 700;
+  background: #f5c542;
+  border-left: 6px solid #b45309;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.notifikasi.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 button {
@@ -189,4 +324,111 @@ body.dark-mode .product-card h3 {
 
 body.dark-mode .price {
   color: #f5c542;
+}
+
+body.dark-mode .order-summary {
+  background: #0b132b;
+  border-color: #1e293b;
+  border-top-color: #f5c542;
+}
+
+body.dark-mode .order-summary h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .order-list li {
+  border-bottom-color: #1e293b;
+}
+
+body.dark-mode .order-total strong {
+  color: #f5c542;
+}
+
+body.dark-mode .order-discount {
+  color: #4ade80;
+}
+
+body.dark-mode #kosongkanPesanan {
+  color: #0b132b;
+  background: #cbd5e1;
+}
+
+body.dark-mode .remove-button {
+  color: #fca5a5;
+}
+
+body.dark-mode .remove-button:hover {
+  color: #fecaca;
+}
+
+/* 7. Penyesuaian Layar Smartphone */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 14px 16px;
+  }
+
+  .nav li {
+    margin: 0 8px;
+  }
+
+  .page {
+    padding: 24px 16px;
+  }
+
+  .hero {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .hero button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .product-card {
+    padding: 14px 16px;
+  }
+
+  .product-card .order-button {
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .order-summary {
+    padding: 16px;
+    margin-top: 20px;
+    border-radius: 14px;
+  }
+
+  .order-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 12px;
+  }
+
+  .order-list .item-name {
+    grid-column: 1 / -1;
+  }
+
+  .order-list .remove-button {
+    justify-self: end;
+  }
+
+  .order-summary > button {
+    width: 100%;
+    margin: 12px 0 0;
+  }
+
+  .order-summary #kosongkanPesanan {
+    margin-top: 8px;
+  }
+
+  .notifikasi {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    max-width: none;
+    padding: 12px 14px;
+  }
 }
