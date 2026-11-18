@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="judul-duren deskripsi-duren">
+  <title id="judul-duren">Kopi Duren Spesial</title>
+  <desc id="deskripsi-duren">Ilustrasi botol Kopi Duren Spesial 250 ml berlabel emas dengan buah durian dan biji kopi di atas meja.</desc>
+
+  <rect width="640" height="360" fill="#0b132b" />
+  <circle cx="320" cy="176" r="152" fill="#111c3a" stroke="#d4af37" stroke-width="2" opacity="0.9" />
+  <rect y="300" width="640" height="60" fill="#050811" />
+  <rect y="300" width="640" height="5" fill="#d4af37" />
+
+  <!-- Botol Kopi Duren Spesial -->
+  <rect x="302" y="48" width="60" height="26" rx="8" fill="#f5c542" stroke="#d4af37" stroke-width="3" />
+  <rect x="314" y="72" width="36" height="38" fill="#111c3a" stroke="#d4af37" stroke-width="4" />
+  <rect x="268" y="104" width="128" height="184" rx="30" fill="#111c3a" stroke="#d4af37" stroke-width="4" />
+  <path d="M290 124 V264" stroke="#1e293b" stroke-width="6" stroke-linecap="round" />
+  <rect x="288" y="154" width="88" height="96" rx="10" fill="#f5c542" stroke="#d4af37" stroke-width="3" />
+  <g fill="#0b132b" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="332" y="184" font-size="15" letter-spacing="1">KOPI</text>
+    <text x="332" y="205" font-size="15" letter-spacing="1">DUREN</text>
+    <text x="332" y="224" font-size="10" letter-spacing="1">SPESIAL</text>
+    <text x="332" y="242" font-size="12">250 ml</text>
+  </g>
+
+  <!-- Buah durian -->
+  <path d="M500 174 l16 12 20 -4 4 18 18 8 -8 18 14 16 -14 16 8 18 -18 8 -4 18 -20 -4 -16 12 -16 -12 -20 4 -4 -18 -18 -8 8 -18 -14 -16 14 -16 -8 -18 18 -8 4 -18 20 4 z" fill="#d4af37" stroke="#f5c542" stroke-width="3" stroke-linejoin="round" />
+  <ellipse cx="500" cy="240" rx="46" ry="42" fill="#b45309" opacity="0.55" />
+  <path d="M500 184 C500 166 508 152 522 146" fill="none" stroke="#f5c542" stroke-width="6" stroke-linecap="round" />
+  <ellipse cx="530" cy="144" rx="18" ry="9" transform="rotate(-28 530 144)" fill="#d4af37" stroke="#f5c542" stroke-width="2" />
+
+  <!-- Biji kopi -->
+  <g fill="#6f4e37" stroke="#d4af37" stroke-width="2">
+    <ellipse cx="146" cy="318" rx="22" ry="13" transform="rotate(-18 146 318)" />
+    <ellipse cx="194" cy="326" rx="22" ry="13" transform="rotate(14 194 326)" />
+    <ellipse cx="540" cy="322" rx="22" ry="13" transform="rotate(-12 540 322)" />
+  </g>
+  <path d="M137 313 C144 316 149 321 154 325" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" />
+  <path d="M185 322 C192 324 197 328 202 331" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" />
+  <path d="M531 317 C538 319 543 323 548 327" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" />
+</svg>

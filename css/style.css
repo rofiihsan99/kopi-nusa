@@ -9,7 +9,12 @@ body {
   color: #0f172a;
   background: #f8fafc;
   font-family: Arial, sans-serif;
+  line-height: 1.65;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+p {
+  margin: 0 0 16px;
 }
 
 /* 1. Skip Link */
@@ -35,7 +40,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 16px 20px;
+  padding: 20px;
   background: #ffffff;
   border-bottom: 2px solid #e2e8f0;
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -49,10 +54,11 @@ body {
 
 .brand {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #0b132b;
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: 800;
+  letter-spacing: 0.04em;
   text-decoration: none;
 }
 
@@ -64,18 +70,27 @@ body {
 
 .nav li {
   display: inline-block;
-  margin: 0 12px; 
+  margin: 0 18px; 
 }
+
 .nav a {
+  display: inline-block;
+  padding: 6px 4px;
   color: #334155;
+  font-size: 1.05rem;
+  font-weight: 600;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #d4af37;
 }
 
 .nav a[aria-current="page"] {
   color: #0b132b;
   font-weight: 800;
   border-bottom: 2px solid #d4af37;
-  padding-bottom: 2px;
 }
 
 /* 3. Indikator Fokus Keyboard */
@@ -92,6 +107,15 @@ button:focus-visible {
   padding: 32px 20px;
 }
 
+main section + section {
+  margin-top: 44px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
 .hero {
   padding: 36px;
   color: #f8fafc;
@@ -99,6 +123,21 @@ button:focus-visible {
   border: 2px solid #d4af37;
   border-radius: 24px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: 2.2rem;
+}
+
+.hero p {
+  margin: 0 0 22px;
+  font-size: 1.08rem;
+}
+
+.hero .eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
 }
 
 .eyebrow {
@@ -120,9 +159,11 @@ img {
 
 /* 5. Kartu Produk */
 .product-list {
-  display: grid;
-  gap: 16px;
   min-width: 0;
+}
+
+.product-card + .product-card {
+  margin-top: 16px;
 }
 
 .product-card {
@@ -188,17 +229,32 @@ img {
 }
 
 .order-list li {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 16px;
   padding: 8px 0;
   border-bottom: 1px dashed #cbd5e1;
+  overflow-wrap: anywhere;
+}
+
+.order-list li::after {
+  display: block;
+  clear: both;
+  content: "";
 }
 
 .order-list .item-name {
+  float: left;
+  margin-right: 16px;
   font-weight: 700;
   overflow-wrap: anywhere;
+}
+
+.order-list li > span:nth-child(2) {
+  float: right;
+  margin-left: 16px;
+}
+
+.order-list .remove-button {
+  float: right;
+  margin-left: 12px;
 }
 
 .order-total {
@@ -233,6 +289,7 @@ img {
 
 .remove-button {
   padding: 2px 4px;
+  margin: 0 0 0 12px;
   color: #b91c1c;
   font-size: 0.8rem;
   font-weight: 700;
@@ -271,6 +328,8 @@ img {
 
 button {
   padding: 12px 18px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   color: #0b132b;
   font-weight: 700;
   cursor: pointer;
@@ -286,6 +345,10 @@ button {
   text-align: center;
   background: #0b132b;
   border-top: 2px solid #d4af37;
+}
+
+.site-footer p {
+  margin: 0;
 }
 
 body.dark-mode {
@@ -305,6 +368,10 @@ body.dark-mode .nav a[aria-current="page"] {
 
 body.dark-mode .nav a {
   color: #cbd5e1;
+}
+
+body.dark-mode .nav a:hover {
+  color: #f5c542;
 }
 
 body.dark-mode .hero {
@@ -361,74 +428,140 @@ body.dark-mode .remove-button:hover {
   color: #fecaca;
 }
 
-/* 7. Penyesuaian Layar Smartphone */
-@media (max-width: 480px) {
-  .site-header {
-    padding: 14px 16px;
-  }
+/* 7. Figure, Caption, dan Tabel Katalog */
+figure {
+  margin: 0 0 20px;
+}
 
-  .nav li {
-    margin: 0 8px;
-  }
+.media-card {
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #d4af37;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
-  .page {
-    padding: 24px 16px;
-  }
+.media-card img {
+  margin-top: 0;
+  border-radius: 12px;
+}
 
-  .hero {
-    padding: 24px 20px;
-    border-radius: 18px;
-  }
+figcaption {
+  margin-top: 12px;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
 
-  .hero button {
-    max-width: 100%;
-    white-space: normal;
-  }
+.gallery-list {
+  margin-top: 16px;
+}
 
-  .product-card {
-    padding: 14px 16px;
-  }
+.page audio {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+}
 
-  .product-card .order-button {
-    width: 100%;
-    margin-top: 14px;
-  }
+table {
+  width: 100%;
+  margin-top: 16px;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-collapse: collapse;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
-  .order-summary {
-    padding: 16px;
-    margin-top: 20px;
-    border-radius: 14px;
-  }
+table + p {
+  margin-top: 16px;
+}
 
-  .order-list li {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 4px 12px;
-  }
+caption {
+  padding: 12px 0;
+  color: #0b132b;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: left;
+}
 
-  .order-list .item-name {
-    grid-column: 1 / -1;
-  }
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #cbd5e1;
+}
 
-  .order-list .remove-button {
-    justify-self: end;
-  }
+thead th {
+  color: #0b132b;
+  background: #f5c542;
+  border-bottom: 2px solid #d4af37;
+}
 
-  .order-summary > button {
-    width: 100%;
-    margin: 12px 0 0;
-  }
+tbody th {
+  color: #0b132b;
+  background: #f8fafc;
+  overflow-wrap: anywhere;
+}
 
-  .order-summary #kosongkanPesanan {
-    margin-top: 8px;
-  }
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
 
-  .notifikasi {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    max-width: none;
-    padding: 12px 14px;
-  }
+tbody tr:hover td,
+tbody tr:hover th {
+  background: #fef3c7;
+}
+
+body.dark-mode .media-card {
+  background: #0b132b;
+  border-color: #1e293b;
+  border-left-color: #f5c542;
+}
+
+body.dark-mode figcaption {
+  color: #cbd5e1;
+}
+
+body.dark-mode table {
+  color: #f1f5f9;
+  background: #0b132b;
+  border-color: #1e293b;
+}
+
+body.dark-mode caption {
+  color: #f5c542;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  border-bottom-color: #1e293b;
+}
+
+body.dark-mode thead th {
+  color: #0b132b;
+  background: #f5c542;
+  border-bottom-color: #d4af37;
+}
+
+body.dark-mode tbody th {
+  color: #f5c542;
+  background: #111c3a;
+}
+
+body.dark-mode tbody tr:hover td,
+body.dark-mode tbody tr:hover th {
+  background: #1e293b;
+}
+
+.page a {
+  color: #1d4ed8;
+  text-underline-offset: 2px;
+}
+
+body.dark-mode .page a {
+  color: #f5c542;
 }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeri Kopi Nusa Website UMKM</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigasi utama">
+      <a class="brand" href="index.html">Kopi Nusa</a>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a aria-current="page" href="galeri.html">Galeri</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="konten" class="page">
+    <section class="hero" aria-labelledby="galeri-title">
+      <p class="eyebrow">Media Usaha</p>
+      <h1 id="galeri-title">Galeri Kopi Nusa</h1>
+      <p>Dokumentasi singkat suasana kedai, proses seduh manual, dan sajian terbaru Kopi Nusa.</p>
+      <button id="themeButton" type="button">Mode Gelap</button>
+    </section>
+
+    <section aria-labelledby="media-title">
+      <h2 id="media-title">Media Usaha</h2>
+      <div class="gallery-list">
+        <figure class="media-card">
+          <img src="assets/images/etalase-kopi.svg" alt="Tiga kemasan kopi Kopi Nusa tersusun rapi di atas meja etalase kedai" />
+          <figcaption>Etalase kedai menampilkan kemasan kopi Gayo, Kopi Nusa, dan Aren yang siap dibawa pulang.</figcaption>
+        </figure>
+
+        <figure class="media-card">
+          <img src="assets/images/proses-seduh.svg" alt="Teko gooseneck menuangkan air panas ke dripper di atas server kopi" />
+          <figcaption>Seduh manual menjadi cara barista Kopi Nusa menjaga rasa dan aroma setiap cangkir.</figcaption>
+        </figure>
+
+        <figure class="media-card">
+          <img src="assets/images/kopi-duren.svg" alt="Botol Kopi Duren Spesial berlabel emas berdampingan dengan buah durian" />
+          <figcaption>Kopi Duren Spesial hadir dalam botol 250 ml seharga Rp25.000, favorit baru pelanggan Kopi Nusa.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="audio-title">
+      <h2 id="audio-title">Sapaan Sambutan Resmi Kopi Nusa</h2>
+      <p id="audio-note">Rekaman ini adalah sapaan sambutan resmi untuk pengunjung Kopi Nusa. Isinya mencakup ucapan selamat datang, informasi jam buka kedai pukul 09.00-22.00 WIB, dan ajakan menikmati kopi Nusantara. Ringkasan teks ini disediakan agar informasi tetap dapat dipahami tanpa harus memutar audio. Audio hanya berbunyi setelah Anda menekan tombol putar.</p>
+      <audio controls aria-describedby="audio-note" src="assets/audio/sapaan-kedai.mp3">Browser Anda tidak mendukung pemutar audio.</audio>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Kopi Nusa.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
