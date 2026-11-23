@@ -193,15 +193,20 @@ if (promoButton) {
   });
 }
 
-const themeButton = document.querySelector("#themeButton");
+const tombolTema = document.querySelector("#toggle-tema");
 const KUNCI_TEMA = "temaKopiNusa";
 
 function perbaruiTombolTema() {
-  if (!themeButton) return;
+  if (!tombolTema) return;
 
-  themeButton.textContent = document.body.classList.contains("dark-mode")
-    ? "Mode Terang"
-    : "Mode Gelap";
+  const gelap = document.body.classList.contains("dark-mode");
+
+  // Ikon saja: matahari saat mode gelap aktif, bulan saat mode terang.
+  tombolTema.textContent = gelap ? "☀️" : "🌙";
+  tombolTema.setAttribute(
+    "aria-label",
+    gelap ? "Aktifkan mode terang" : "Aktifkan mode gelap"
+  );
 }
 
 try {
@@ -214,8 +219,8 @@ try {
 
 perbaruiTombolTema();
 
-if (themeButton) {
-  themeButton.addEventListener("click", () => {
+if (tombolTema) {
+  tombolTema.addEventListener("click", () => {
     // Pasang atau lepas class dark-mode
     const gelap = document.body.classList.toggle("dark-mode");
     perbaruiTombolTema();
