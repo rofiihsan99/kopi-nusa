@@ -234,3 +234,80 @@ if (tombolTema) {
     console.log(gelap ? "Mode Gelap diaktifkan." : "Mode Terang diaktifkan.");
   });
 }
+
+// Jam real-time Indonesia dengan pilihan zona waktu WIB, WITA, atau WIT.
+const clockText = document.querySelector("#live-clock-text");
+const timezoneSelect = document.querySelector("#timezone-select");
+const LABEL_ZONA_WAKTU = {
+  "Asia/Jakarta": "WIB",
+  "Asia/Makassar": "WITA",
+  "Asia/Jayapura": "WIT",
+};
+
+function perbaruiWaktuRealtime() {
+  if (!clockText || !timezoneSelect) return;
+
+  const zonaWaktu = timezoneSelect.value || "Asia/Jakarta";
+  const opsiAktif = timezoneSelect.selectedOptions[0];
+  const labelZona =
+    (opsiAktif && opsiAktif.dataset.label) ||
+    LABEL_ZONA_WAKTU[zonaWaktu] ||
+    "WIB";
+  const sekarang = new Date();
+
+  const formatter = new Intl.DateTimeFormat("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+    timeZone: zonaWaktu,
+  });
+
+  const bagian = formatter.formatToParts(sekarang);
+  const ambilBagian = (tipe) => {
+    const bagianDicari = bagian.find((item) => item.type === tipe);
+    return bagianDicari ? bagianDicari.value : "";
+  };
+
+  const jamAwal = ambilBagian("hour");
+  const jam = jamAwal === "24" ? "00" : jamAwal;
+  const tanggal = `${ambilBagian("weekday")}, ${ambilBagian("day")} ${ambilBagian("month")} ${ambilBagian("year")}`;
+  const waktu = `${jam}:${ambilBagian("minute")}:${ambilBagian("second")}`;
+
+  clockText.textContent = `${tanggal} • ${waktu} ${labelZona}`;
+  clockText.setAttribute("datetime", sekarang.toISOString());
+}
+
+function pilihZonaWaktuAwal() {
+  if (!timezoneSelect) return;
+
+  try {
+    const zonaPerangkat = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    if (LABEL_ZONA_WAKTU[zonaPerangkat]) {
+      timezoneSelect.value = zonaPerangkat;
+    }
+  } catch (error) {
+    // Biarkan pilihan default WIB jika zona perangkat tidak terbaca.
+  }
+}
+
+function mulaiJamRealtime() {
+  pilihZonaWaktuAwal();
+  perbaruiWaktuRealtime();
+  setInterval(perbaruiWaktuRealtime, 1000);
+}
+
+if (clockText && timezoneSelect) {
+  timezoneSelect.addEventListener("change", perbaruiWaktuRealtime);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mulaiJamRealtime);
+  } else {
+    mulaiJamRealtime();
+  }
+}

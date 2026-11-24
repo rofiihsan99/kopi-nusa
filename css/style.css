@@ -131,6 +131,19 @@ li {
   z-index: 100;
 }
 
+/* Teks tetap terbaca screen reader, tetapi tersembunyi secara visual. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* 7. Header & Navigasi */
 .site-header {
   position: sticky;
@@ -146,12 +159,72 @@ li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
+    "clock clock"
     "brand theme"
     "menu menu";
   align-items: center;
   width: min(100% - 2rem, 60rem);
   margin-inline: auto;
   gap: var(--space-3);
+}
+
+/* Widget jam real-time di baris meta atas navigasi. */
+.live-clock-widget {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: clock;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  gap: 0.25rem 0.5rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.clock-text {
+  min-width: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.timezone-select {
+  width: auto;
+  max-width: 100%;
+  padding: 0.2rem 0.55rem;
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.timezone-select:hover {
+  border-color: var(--color-accent);
+}
+
+.timezone-select:focus {
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .timezone-select {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+body.dark-mode .timezone-select:hover,
+body.dark-mode .timezone-select:focus {
+  border-color: var(--color-accent-bright);
 }
 
 .brand {
@@ -1002,22 +1075,194 @@ body.dark-mode #produk-unggulan {
   color: var(--color-accent-bright);
 }
 
-.category-summary {
-  padding: var(--space-2) var(--space-3);
-  margin: var(--space-2) 0 0;
+.catalog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  max-width: none;
+}
+
+.catalog-meta p {
+  max-width: none;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.catalog-meta p + p::before {
+  margin-right: 0.6rem;
+  color: var(--color-accent);
+  content: "•";
+}
+
+/* Ringkasan kategori tampil sebagai teks ringkas, bukan kartu terpisah. */
+#ringkasan-kategori,
+.section-header p.category-summary {
+  padding: 0;
+  margin: 0;
   color: var(--color-text);
   font-size: 0.95rem;
   font-weight: 600;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-accent);
-  border-radius: var(--radius-md);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* Menang atas warna muted dari .section-header p:last-child. */
-.section-header p.category-summary {
+/* 20. Kontrol Filter & Status Katalog Dinamis */
+.catalog-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-3);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.filter-label {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.produk-status {
+  max-width: none;
+  padding: 0;
+  margin: 0 0 var(--space-3);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow-wrap: anywhere;
+}
+
+.filter-button {
+  padding: 0.4rem var(--space-3);
+  margin: 0;
   color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.filter-button:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+.filter-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.filter-button.is-active {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent) inset;
+}
+
+body.dark-mode .filter-button {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+body.dark-mode .filter-button:hover,
+body.dark-mode .filter-button.is-active {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  max-width: none;
+  padding: 2rem 1rem;
+  margin: 0;
+  color: var(--color-muted);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  overflow-wrap: anywhere;
+}
+
+.js-product-card .category-note {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.js-product-card .price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  align-items: baseline;
+  margin: 0;
+}
+
+.ghost-button {
+  align-self: flex-start;
+  padding: 0.4rem var(--space-3);
+  margin: auto 0 0;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ghost-button:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+.ghost-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+body.dark-mode .ghost-button {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+body.dark-mode .ghost-button:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
 }
 
 /* 20. Breakpoint berbasis konten*/
@@ -1025,12 +1270,20 @@ body.dark-mode #produk-unggulan {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .filter-group {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-1);
+  }
 }
 
 @media (min-width: 48rem) {
   .nav {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "brand menu theme";
+    grid-template-areas:
+      "clock clock clock"
+      "brand menu theme";
     gap: var(--space-2);
   }
 

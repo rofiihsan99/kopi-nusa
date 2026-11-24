@@ -13,6 +13,15 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Navigasi utama">
+      <div class="live-clock-widget" aria-label="Waktu operasional real-time">
+        <time id="live-clock-text" class="clock-text">Memuat waktu...</time>
+        <label for="timezone-select" class="sr-only">Pilih Zona Waktu</label>
+        <select id="timezone-select" class="timezone-select" aria-label="Pilih zona waktu Indonesia">
+          <option value="Asia/Jakarta" data-label="WIB" selected>WIB</option>
+          <option value="Asia/Makassar" data-label="WITA">WITA</option>
+          <option value="Asia/Jayapura" data-label="WIT">WIT</option>
+        </select>
+      </div>
       <a class="brand" href="index.html">Kopi Nusa</a>
       <button type="button" id="toggle-tema" class="theme-icon-btn" aria-label="Aktifkan mode gelap" title="Ubah tema">🌙</button>
       <ul>
@@ -86,11 +95,34 @@
       <div class="section-header">
         <p class="eyebrow">Data JavaScript</p>
         <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
-        <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
-        <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
-        <p id="ringkasan-kategori" class="category-summary">Ringkasan kategori akan dimuat melalui JavaScript.</p>
+        <div class="catalog-meta">
+          <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+          <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
+          <p id="ringkasan-kategori" class="category-summary">Ringkasan kategori akan dimuat melalui JavaScript.</p>
+        </div>
       </div>
-      <div id="produk-dinamis" class="js-product-grid"></div>
+      <div class="catalog-controls">
+        <div class="filter-group">
+          <span class="filter-label">Kategori:</span>
+          <div class="filter-bar" role="group" aria-label="Filter kategori produk">
+            <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
+            <button type="button" class="filter-button" data-filter="Kopi">Kopi</button>
+            <button type="button" class="filter-button" data-filter="Bundling">Bundling</button>
+            <button type="button" class="filter-button" data-filter="Aksesori">Aksesori</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Status Stok:</span>
+          <div class="filter-bar" role="group" aria-label="Filter status stok produk">
+            <button type="button" class="filter-button is-active" data-stock-filter="Semua">Semua</button>
+            <button type="button" class="filter-button" data-stock-filter="Tersedia">Tersedia</button>
+            <button type="button" class="filter-button" data-stock-filter="Stok terbatas">Stok terbatas</button>
+            <button type="button" class="filter-button" data-stock-filter="Habis">Habis</button>
+          </div>
+        </div>
+      </div>
+      <p id="produk-status" class="produk-status" aria-live="polite">Memuat produk...</p>
+      <div id="produk-grid" class="product-grid js-product-grid" aria-live="polite"></div>
     </section>
 
     <section aria-labelledby="harga-title">

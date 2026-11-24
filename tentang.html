@@ -15,6 +15,15 @@
   <!-- Header & Navigasi Utama (penanda halaman aktif pada Tentang Kami) -->
   <header class="site-header">
     <nav class="nav" aria-label="Navigasi utama">
+      <div class="live-clock-widget" aria-label="Waktu operasional real-time">
+        <time id="live-clock-text" class="clock-text">Memuat waktu...</time>
+        <label for="timezone-select" class="sr-only">Pilih Zona Waktu</label>
+        <select id="timezone-select" class="timezone-select" aria-label="Pilih zona waktu Indonesia">
+          <option value="Asia/Jakarta" data-label="WIB" selected>WIB</option>
+          <option value="Asia/Makassar" data-label="WITA">WITA</option>
+          <option value="Asia/Jayapura" data-label="WIT">WIT</option>
+        </select>
+      </div>
       <a class="brand" href="index.html">Kopi Nusa</a>
       <button type="button" id="toggle-tema" class="theme-icon-btn" aria-label="Aktifkan mode gelap" title="Ubah tema">🌙</button>
       <ul>

@@ -14,6 +14,15 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Navigasi utama">
+      <div class="live-clock-widget" aria-label="Waktu operasional real-time">
+        <time id="live-clock-text" class="clock-text">Memuat waktu...</time>
+        <label for="timezone-select" class="sr-only">Pilih Zona Waktu</label>
+        <select id="timezone-select" class="timezone-select" aria-label="Pilih zona waktu Indonesia">
+          <option value="Asia/Jakarta" data-label="WIB" selected>WIB</option>
+          <option value="Asia/Makassar" data-label="WITA">WITA</option>
+          <option value="Asia/Jayapura" data-label="WIT">WIT</option>
+        </select>
+      </div>
       <a class="brand" href="index.html">Kopi Nusa</a>
       <button type="button" id="toggle-tema" class="theme-icon-btn" aria-label="Aktifkan mode gelap" title="Ubah tema">🌙</button>
       <ul>
@@ -112,7 +121,7 @@
     <section id="kontak" aria-labelledby="kontak-title">
       <h2 id="kontak-title">Kontak Singkat</h2>
       <p>Buka setiap hari: 09.00 - 22.00 WIB</p>
-      <p>Lokasi: Jl. Nusantara No. 12, Pekalongan</p>
+      <p>Lokasi: Jl. Angkatan No. 66, Pekalongan</p>
       <p><a href="tentang.html">Baca profil dan nilai Kopi Nusa</a></p>
     </section>
   </main>
