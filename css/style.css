@@ -131,7 +131,7 @@ li {
   z-index: 100;
 }
 
-/* Teks tetap terbaca screen reader, tetapi tersembunyi secara visual. */
+/* Teks tetap terbaca screen reader*/
 .sr-only {
   position: absolute;
   width: 1px;
@@ -168,7 +168,7 @@ li {
   gap: var(--space-3);
 }
 
-/* Widget jam real-time di baris meta atas navigasi. */
+/* Widget jam real-time di baris atas nav */
 .live-clock-widget {
   display: flex;
   flex-wrap: wrap;
@@ -251,7 +251,7 @@ body.dark-mode .timezone-select:focus {
   list-style: none;
 }
 
-/* Tombol toggle tema berbentuk ikon, selalu di pojok kanan navigasi. */
+/* Tombol tema ikon, selalu di pojok kanan nav */
 .theme-icon-btn {
   display: inline-flex;
   grid-area: theme;
@@ -674,7 +674,7 @@ figcaption {
   margin: 0;
 }
 
-/* 14b. Grid Profil Tentang Kami */
+/* 15. Grid Profil Tentang Kami */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -730,7 +730,7 @@ figcaption {
   margin-top: var(--space-2);
 }
 
-/* 15. Tabel Harga */
+/* 16. Tabel Harga */
 .table-scroll {
   max-width: 100%;
   overflow-x: auto;
@@ -808,7 +808,7 @@ tbody tr:hover th {
   background: color-mix(in srgb, var(--color-accent) 18%, var(--color-surface));
 }
 
-/* 16. Tautan dalam Konten */
+/* 17. Tautan dalam Konten */
 .page a {
   color: var(--color-focus);
   text-underline-offset: 2px;
@@ -917,7 +917,453 @@ legend {
   box-shadow: var(--shadow-card);
 }
 
-/* 18. Kartu Audio Galeri */
+/* 18. Status Validasi, Preferensi, & Newsletter*/
+.field-error {
+  min-height: 1.25rem;
+  margin: 0.25rem 0 0;
+  color: var(--color-danger);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.form-feedback {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  overflow-wrap: anywhere;
+}
+
+.form-feedback:empty {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.form-feedback.success {
+  color: var(--color-success-text);
+  background: color-mix(in srgb, var(--color-success-text) 10%, var(--color-surface));
+  border-color: var(--color-success-text);
+  border-left-color: var(--color-success-text);
+}
+
+body.dark-mode .form-feedback {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  border-left-color: var(--color-accent);
+}
+
+body.dark-mode .form-feedback.success {
+  color: var(--color-success-text);
+  background: color-mix(in srgb, var(--color-success-text) 14%, var(--color-surface));
+  border-color: var(--color-success-text);
+  border-left-color: var(--color-success-text);
+}
+
+input:not([type="radio"]):not([type="checkbox"])[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+  box-shadow: 0 0 0 1px var(--color-danger);
+}
+
+input[type="radio"][aria-invalid="true"],
+input[type="checkbox"][aria-invalid="true"] {
+  outline: 2px solid var(--color-danger);
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  margin-top: var(--space-4);
+}
+
+.form-actions button {
+  margin: 0;
+}
+
+.form-actions .ghost-button {
+  align-self: center;
+}
+
+.field .checkbox-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.checkbox-option input {
+  flex: 0 0 auto;
+  margin-top: 0.35rem;
+  accent-color: var(--color-accent);
+}
+
+.preview-box {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.preview-box[hidden] {
+  display: none;
+}
+
+/* Kartu utama kontak */
+.contact-card {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-card h2 {
+  margin-bottom: var(--space-2);
+}
+
+.contact-intro {
+  margin-bottom: var(--space-4);
+  color: var(--color-muted);
+}
+
+.contact-card form {
+  margin-top: 0;
+}
+
+.contact-card .field {
+  margin-bottom: var(--space-3);
+}
+
+.contact-card .field-error {
+  min-height: 1rem;
+}
+
+/* Preferensi pelanggan lokal */
+.preference-fieldset {
+  margin: 0 0 var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.preference-fieldset legend {
+  padding: 0 var(--space-1);
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.preference-note {
+  margin: 0 0 var(--space-3);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.preference-fieldset .field {
+  margin-bottom: var(--space-2);
+}
+
+.topik-fieldset {
+  margin: 0 0 var(--space-2);
+  padding: var(--space-2);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.topik-fieldset legend {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.preference-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.btn-preferensi-simpan,
+.btn-preferensi-hapus {
+  flex: 1 1 0;
+  max-width: 12rem;
+  padding: var(--space-2) var(--space-3);
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-preferensi-simpan {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-preferensi-simpan:hover {
+  background: var(--color-accent);
+}
+
+.btn-preferensi-hapus {
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+}
+
+.btn-preferensi-hapus:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .btn-preferensi-simpan {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .btn-preferensi-hapus {
+  color: var(--color-text);
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+body.dark-mode .btn-preferensi-hapus:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+.preference-status {
+  min-height: 1.1rem;
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.preference-status.success {
+  color: var(--color-success-text);
+}
+
+.preference-status:empty {
+  min-height: 0;
+  margin: 0;
+}
+
+/* Tombol utama lebar penuh */
+.btn-submit-full {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-4) 0 0;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  background: var(--color-accent-bright);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-submit-full:hover {
+  background: var(--color-accent);
+}
+
+.btn-submit-full:active {
+  transform: translateY(1px);
+}
+
+body.dark-mode .btn-submit-full {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .btn-submit-full:hover {
+  background: var(--color-accent);
+}
+
+/* Pembungkus ringkasan pesan valid */
+.preview-wrapper {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.preview-wrapper[hidden] {
+  display: none;
+}
+
+.preview-wrapper h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+
+.preview-wrapper #preview-form {
+  margin: 0;
+}
+
+/* Baris newsletter minimalis */
+.newsletter-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  max-width: 46rem;
+  margin: var(--space-5) auto 0;
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.newsletter-copy h2 {
+  margin: 0 0 var(--space-1);
+  font-size: 1.15rem;
+}
+
+.newsletter-copy p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.newsletter-form {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.newsletter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+
+.newsletter-row input[type="email"] {
+  flex: 1 1 11rem;
+  min-width: 0;
+  width: auto;
+}
+
+.newsletter-row button {
+  margin: 0;
+}
+
+.btn-newsletter,
+.btn-newsletter-hapus {
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.875rem;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.btn-newsletter {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-newsletter:hover {
+  background: var(--color-accent);
+}
+
+.btn-newsletter-hapus {
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+}
+
+.btn-newsletter-hapus:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .btn-newsletter {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+body.dark-mode .btn-newsletter-hapus {
+  color: var(--color-text);
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+body.dark-mode .btn-newsletter-hapus:hover {
+  color: var(--color-primary);
+  background: var(--color-accent-bright);
+  border-color: var(--color-accent);
+}
+
+.newsletter-form .field-error {
+  min-height: 0;
+  margin: 0.25rem 0 0;
+}
+
+.newsletter-form .form-feedback {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  background: transparent;
+  border: 0;
+}
+
+.newsletter-form .form-feedback.success {
+  color: var(--color-success-text);
+}
+
+body.dark-mode .newsletter-form .form-feedback {
+  padding: 0;
+  color: var(--color-muted);
+  background: transparent;
+  border: 0;
+}
+
+body.dark-mode .newsletter-form .form-feedback.success {
+  color: var(--color-success-text);
+  background: transparent;
+  border: 0;
+}
+
+.newsletter-status:empty {
+  min-height: 0;
+  margin: 0;
+}
+
+/* 19. Kartu Audio Galeri */
 .audio-card {
   display: flex;
   flex-direction: column;
@@ -946,7 +1392,7 @@ legend {
   margin-top: 0;
 }
 
-/* 19. Komponen Data Produk JavaScript (P09) */
+/* 20. Komponen Data Produk JavaScript*/
 .section-header {
   max-width: 68ch;
   margin-bottom: var(--space-4);
@@ -1064,7 +1510,7 @@ legend {
   font-weight: 700;
 }
 
-/* 19. data produk js*/
+/* 21. data produk js*/
 #produk-unggulan {
   font-weight: 700;
   color: var(--color-primary, #f5c542);
@@ -1111,7 +1557,7 @@ body.dark-mode #produk-unggulan {
   box-shadow: none;
 }
 
-/* 20. Kontrol Filter & Status Katalog Dinamis */
+/* 22. Kontrol Filter & Status Katalog Dinamis */
 .catalog-controls {
   display: flex;
   flex-direction: column;
@@ -1266,6 +1712,44 @@ body.dark-mode .ghost-button:hover {
 }
 
 /* 20. Breakpoint berbasis konten*/
+@media (max-width: 26rem) {
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-1);
+    margin: 0 0 var(--space-1);
+  }
+
+  .radio-option input {
+    margin-top: 0.35rem;
+    margin-right: 0;
+  }
+
+  .newsletter-row {
+    flex-direction: column;
+  }
+
+  .newsletter-row input[type="email"],
+  .newsletter-row button {
+    width: 100%;
+  }
+
+  .btn-preferensi-simpan,
+  .btn-preferensi-hapus {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (min-width: 42rem) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1295,6 +1779,12 @@ body.dark-mode .ghost-button:hover {
   .hero {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
     align-items: center;
+  }
+
+  .newsletter-strip {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: var(--space-4);
   }
 
   .product-grid,
