@@ -1,0 +1,43 @@
+[
+  {
+    "id": "kopi-001",
+    "name": "Americano Kopi Nusa",
+    "category": "Kopi",
+    "categoryNote": "Kopi · Espresso bersih dan aromatik",
+    "price": 18000,
+    "stock": 15,
+    "featured": true,
+    "description": "Espresso pilihan dengan air mineral segar, karakter bersih dan aromatik."
+  },
+  {
+    "id": "kopi-002",
+    "name": "Kopi Duren Spesial",
+    "category": "Kopi",
+    "categoryNote": "Kopi · Espresso robusta dan durian asli",
+    "price": 25000,
+    "promoPrice": 22500,
+    "stock": 4,
+    "featured": true,
+    "description": "Perpaduan espresso robusta dan daging durian asli yang legit."
+  },
+  {
+    "id": "kopi-003",
+    "name": "Kopi Matcha Nusantara",
+    "category": "Kopi",
+    "categoryNote": "Kopi · Matcha premium sajian dingin",
+    "price": 23000,
+    "stock": 8,
+    "featured": false,
+    "description": "Matcha premium berpadu espresso lembut dalam sajian dingin 250 ml."
+  },
+  {
+    "id": "bundling-001",
+    "name": "Paket Seduh Rumahan",
+    "category": "Bundling",
+    "categoryNote": "Bundling · Biji kopi, V60, dan filter",
+    "price": 85000,
+    "stock": 0,
+    "featured": false,
+    "description": "Biji kopi pilihan 250 gram lengkap dengan V60 dripper dan kertas filter."
+  }
+]

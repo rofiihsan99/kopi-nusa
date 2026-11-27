@@ -93,12 +93,13 @@
 
     <section class="section" aria-labelledby="produk-dinamis-title">
       <div class="section-header">
-        <p class="eyebrow">Data JavaScript</p>
-        <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+        <p class="eyebrow">Fetch API &amp; JSON</p>
+        <h2 id="produk-dinamis-title">Produk dari Data JSON</h2>
+        <p id="catalog-status" class="catalog-status" aria-live="polite">Menyiapkan katalog produk...</p>
         <div class="catalog-meta">
-          <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
-          <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
-          <p id="ringkasan-kategori" class="category-summary">Ringkasan kategori akan dimuat melalui JavaScript.</p>
+          <p id="produk-ringkasan">Data produk akan dimuat dari data/products.json.</p>
+          <p id="produk-unggulan">Produk unggulan akan ditentukan dari data JSON.</p>
+          <p id="ringkasan-kategori" class="category-summary">Ringkasan kategori akan dimuat dari data JSON.</p>
         </div>
       </div>
       <div class="catalog-controls">
@@ -121,8 +122,7 @@
           </div>
         </div>
       </div>
-      <p id="produk-status" class="produk-status" aria-live="polite">Memuat produk...</p>
-      <div id="produk-grid" class="product-grid js-product-grid" aria-live="polite"></div>
+      <div id="produk-dinamis" class="product-grid js-product-grid" aria-live="polite"></div>
     </section>
 
     <section aria-labelledby="harga-title">
@@ -186,5 +186,6 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script type="module" src="js/catalog-api.js"></script>
 </body>
 </html>
